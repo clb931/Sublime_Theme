@@ -1,0 +1,27 @@
+{
+	"shell_cmd": "build.bat",
+
+	"file_regex": "\\b(.*.cpp)\\((\\d*)\\) : \\b(.*)",
+	"working_dir": "${file_path}",
+	"selector": "source.c, source.c++",
+
+	"variants":
+	[
+		{
+			"name": "Run",
+			"working_dir": "..\\build",
+			"shell_cmd": "${file_base_name}.exe"
+		},
+
+		{
+			"name": "Debug",
+			"working_dir": "..\\build",
+			"shell_cmd": "devenv ${file_base_name}.exe"
+		},
+
+		{
+			"name": "Clean",
+			"shell_cmd": "..\\src\\clean.bat"
+		}
+	]
+}
